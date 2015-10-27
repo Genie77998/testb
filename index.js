@@ -25,8 +25,8 @@ require([
 
 	$(function(){
 		$('input[name=date]').each(function(){
-			var startYear = $(this).data('startYear') || 1970,
-				endYear = $(this).data('endYear') || new Date().getFullYear(),
+			var startYear = $(this).data('startyear') || 1970,
+				endYear = $(this).data('endyear') || new Date().getFullYear(),
 				theme = $(this).data('theme') || 'android-ics light',
 				mode = $(this).data('mode') || 'scroller',
 				lang = $(this).data('lang') || 'zh',
