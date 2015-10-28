@@ -41,7 +41,7 @@ require([
 				lang = $(this).data('lang') || 'zh',
 				dateOrder = $(this).data('order') || 'yymmddD',
 				display = $(this).data('display') || 'bottom',
-				$this = $(this);
+				me = this;
 			$(this).mobiscroll().date({
 	            theme:theme,
 	            mode:mode,
@@ -52,9 +52,9 @@ require([
 	            startYear:startYear,
 	            endYear:endYear,
 	            callback:function(date){
-	            	var _call = $this.data('callback');
+	            	var _call = $(me).data('callback');
 	            	if(_call && _callback[_call]){
-	            		_callback[_call].call($this,date)
+	            		_callback[_call].call(me,date)
 	            	}
 	            }
 	        });
