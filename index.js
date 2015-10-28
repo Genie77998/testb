@@ -34,17 +34,21 @@ require([
 				theme = $(this).data('theme') || 'android-ics light',
 				mode = $(this).data('mode') || 'scroller',
 				lang = $(this).data('lang') || 'zh',
+				dateOrder = $(this).data('order') || 'yymmddD',
 				display = $(this).data('display') || 'bottom';
 			$(this).mobiscroll().date({
 	            theme:theme,
 	            mode:mode,
 	            lang: lang,
+	            dateOrder : dateOrder,
 	            buttons : ['set'],
 	            display:display,
 	            startYear:startYear,
-	            endYear:endYear
+	            endYear:endYear,
+	            callback:function(a){
+	            	console.log(a);
+	            }
 	        });
-	        console.log($.mobiscroll);
 		});
 	});
 })
