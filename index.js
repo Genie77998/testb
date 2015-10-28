@@ -28,6 +28,11 @@ require([
     //rows: 3}
 
 	$(function(){
+		var _callback = {
+				callbacka : function(a){
+					console.log(a,this);
+				}
+		}
 		$('input[name=date]').each(function(){
 			var startYear = $(this).data('startyear') || 1970,
 				endYear = $(this).data('endyear') || new Date().getFullYear(),
@@ -35,7 +40,8 @@ require([
 				mode = $(this).data('mode') || 'scroller',
 				lang = $(this).data('lang') || 'zh',
 				dateOrder = $(this).data('order') || 'yymmddD',
-				display = $(this).data('display') || 'bottom';
+				display = $(this).data('display') || 'bottom',
+				$this = $(this);
 			$(this).mobiscroll().date({
 	            theme:theme,
 	            mode:mode,
@@ -45,8 +51,11 @@ require([
 	            display:display,
 	            startYear:startYear,
 	            endYear:endYear,
-	            callback:function(a){
-	            	console.log(a);
+	            callback:function(date){
+	            	var _call = $this.data('callback');
+	            	if(_call && _callback[_call]){
+	            		_callback[_call].call($this,date)
+	            	}
 	            }
 	        });
 		});
