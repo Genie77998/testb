@@ -72,6 +72,6 @@ require([
 	            return false;
 	        }
 	        console.log(data);
-		});
+		});	
 	});
 })
