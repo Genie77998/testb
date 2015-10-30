@@ -41,5 +41,74 @@ require([
 	        });
 	        console.log($.mobiscroll);
 		});
+
+		$('#submitForm1').click(function(){
+			var data = validate('#form1');
+	        if (!data) {
+	            return false;
+	        }
+	        console.log(data);
+		});
+
+
+		function getData(form) {
+	        var formData = getFormDataAsObj($(form));
+	        return formData;
+	    }
+
+	    function getFormDataAsObj($form) {
+            var obj = {},
+                arr = $form.serializeArray();
+            for (var i = 0; i < arr.length; i++) {
+                obj[arr[i].name] = arr[i].value;
+            }
+            return obj;
+        }
+
+	    function validate(form) {
+	        var data = getData(form),
+	            _relu = {
+	                phoneReg : /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/ // 11位手机号码
+	            },
+	            valid = true;
+	        for (var i in data) {
+	            var value = data[i],
+	                $item = $('[name=' + i + ']'),
+	                require = $item.data('require'),
+	                nullMsg = $item.data('null'),
+	                errorMsg = $item.data('error'),
+	                ruleName = $item.data('rule') || '',
+	                rule = _relu[ruleName];
+
+	            if (require) {
+	                if(value == '-1'){
+	                    valid = false;
+	                    console.log(nullMsg);
+	                    alert(nullMsg);
+	                    break;
+	                }
+	                if (!value) {
+	                    valid = false;
+	                    console.log(nullMsg);
+	                    alert(nullMsg);
+	                    break;
+	                } else if (ruleName && !rule.test(value)) {
+	                    valid = false;
+	                    console.log(errorMsg);
+	                    alert(errorMsg);
+	                    break;
+	                }
+	            } else {
+	                if (value && ruleName && !rule.test(value)) {
+	                    valid = false;
+	                    console.log(errorMsg);
+	                    alert(errorMsg);
+	                    break;
+	                }
+	            }
+	        }
+	        return valid ? data : false;
+	    }
+
 	});
 })

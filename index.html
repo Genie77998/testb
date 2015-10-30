@@ -7,8 +7,11 @@
 	<link rel="stylesheet" href="mobiscroll.css">
 </head>
 <body>
-	<input type="text" name="date" value="1992-10-12" />
-	<input type="text" name="date" data-endyear="2020" />
+	<form id="form1">
+		<input type="text" name="date" data-endyear="2020" placeholder="请输入出生日期" data-require="true" data-null="请输入出生日期" />
+		<input type="text" name="phone" data-rule="phoneReg" placeholder="请输入手机号" data-require="true" data-null="请输入手机号" data-error="手机号格式错误" >
+		<input type="button" id="submitForm1" value="提交信息">
+	</form>
 </body>
 <script type="text/javascript" src="require.min.js" data-main="index"></script>
 </html>
