@@ -54,7 +54,7 @@ require([
         function showMsg(msg){
 			if(!document.getElementById('_lyqShowMsgStyle')){
 				var style = document.createElement('style'),
-                	_cssText = "._lyqShowMsg{position:fixed;width:100%;height:100%;top:0;left:0;text-align:center;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-pack:center;-webkit-box-align:center;z-index:1}.hidden{display:none!important}._lyqShowMsg .mask{position:fixed;width:100%;height:100%;top:0;left:0;background:#000;opacity:.5}._lyqShowMsg .content{display:block;width:100%;z-index:2000;position:absolute;height:auto;left:0;overflow-y:scroll;overflow-x:hidden;box-sizing:border-box;padding:0 20px}._lyqShowMsg .box{padding:16px 10px;background:white}._lyqShowMsg p{line-height:24px;color:#4c4c4c}";
+                	_cssText = "._lyqShowMsg{position:fixed;width:100%;height:100%;top:0;left:0;text-align:center;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-pack:center;-webkit-box-align:center;z-index:1}.hidden{display:none!important}._lyqShowMsg .mask{position:fixed;width:100%;height:100%;top:0;left:0;background:#000;opacity:.5}._lyqShowMsg .content{display:block;width:100%;z-index:2000;position:absolute;height:auto;left:0;overflow-y:scroll;overflow-x:hidden;box-sizing:border-box;padding:0 20px;}._lyqShowMsg .box{padding:16px 10px;background:white;border-radius: 10px;}._lyqShowMsg p{line-height:24px;color:#4c4c4c}";
 	                style.type = "text/css";
 	                style.id = '_lyqShowMsgStyle';
 	                style.styleSheet ? style.styleSheet.cssText = _cssText : style.innerHTML = _cssText
