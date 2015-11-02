@@ -24,6 +24,8 @@ require([
     //clearText:"明确"
     //nowText: "明天",  //
     //showOnFocus: false,
+    //minDate: new Date(2014, 8, 15),
+    //maxDate: new Date(2024, 8, 14)
     //height: 45,
     //width: 90,
     //rows: 3}
@@ -42,6 +44,8 @@ require([
 				lang = $(this).data('lang') || 'zh',
 				dateOrder = $(this).data('order') || 'yymmddD',
 				display = $(this).data('display') || 'bottom',
+				minDate = $(this).data('mindate') || new Date(2008, 12, 01),
+				maxDate = $(this).data('maxdate') || new Date(),
 				me = this;
 			$(this).mobiscroll().date({
 	            theme:theme,
@@ -50,6 +54,8 @@ require([
 	            dateOrder : dateOrder,
 	            buttons : ['set'],
 	            display:display,
+	            minDate : minDate,
+    			maxDate : maxDate,
 	            startYear:startYear,
 	            endYear:endYear,
 	            callback:function(date){
