@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" href="mobiscroll.css">
+</head>
+<body>
+	
+</body>
+<script type="text/html" id="myTemplate">
+	<button data-name="测试" data-value="这是一个测试">测试</button>
+	<button data-name="张三" data-value="张三是个傻逼">傻逼</button>
+	<button>普通</button>
+	<button data-name="汪文君" data-value="汪文君爱林余群">汪文君</button>
+	<div id="box"></div>
+</script>
+<script type="text/html" id="myData">
+	<div>
+		<label>姓名</label>
+		<input type="text" value="{{data.name}}">
+		<label>格言：</label>
+		<textarea>{{data.value}}</textarea>
+		<hr>
+	</div>
+</script>
+<script type="text/javascript" src="require.min.js" data-main="data"></script>
+</html>
