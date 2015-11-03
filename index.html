@@ -6,12 +6,29 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" />
 	<link rel="stylesheet" href="mobiscroll.css">
 </head>
-<body>
+<body></body>
+<script type="text/html" id="myList">
+	{{if data.length}}
+		<dl>
+			{{each data as val key}}
+				<dd>
+					{{key+1}}.{{val.title}}
+				    {{if val.date && val.date !=''}}
+						{{val.date.substr(0,10)}}
+					{{else}}
+						未知时间
+					{{/if}}
+				</dd>
+			{{/each}}
+		</dl>
+	{{/if}}
+</script>
+<script type="text/html" id="myForm">
 	<form id="form1">
 		<input type="text" name="date" data-endyear="2020" placeholder="请输入出生日期" data-require="true" data-null="请输入出生日期" data-order="yymmdd" />
 		<input type="text" name="phone" data-rule="phoneReg" placeholder="请输入手机号" data-require="true" data-null="请输入手机号" data-error="手机号格式错误" >
 		<input type="button" id="submitForm1" value="提交信息">
 	</form>
-</body>
+</script>
 <script type="text/javascript" src="require.min.js" data-main="index"></script>
 </html>

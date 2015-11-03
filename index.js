@@ -1,7 +1,8 @@
 require([
 	"zepto.min",
 	"validate",
-	"mobiscroll.min"
+	"mobiscroll.min",
+	"tpl.min"
 ], function() {
 	//preset: 'date', //日期类型--datatime --time,
     //theme: 'ios', //皮肤其他参数【android-ics light】【android-ics】【ios】【jqm】【sense-ui】【sense-ui】【sense-ui】
@@ -31,6 +32,22 @@ require([
     //rows: 3}
 
 	$(function(){
+		$('body').append(template('myForm'));
+		$('body').append(template('myList',{
+			data : [
+				{
+					title : '这是第一条',
+					date : '2015-11-03 10:00:00'
+				},
+				{
+					title : '这是第二条'
+				},
+				{
+					title : '这是第三条',
+					date : '2015-10-23 10:00:00'
+				}
+			]
+		}));
 		var _callback = {
 				callbacka : function(a){
 					console.log(a,this);
